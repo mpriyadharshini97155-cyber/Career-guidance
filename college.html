@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>College Students</title>
+
+<link rel="stylesheet" href="style.css">
+
+</head>
+
+<body>
+
+<header>
+<h1>🎓 College Student Career Guide</h1>
+<p>Explore career options after graduation.</p>
+</header>
+
+<div class="container">
+
+<input type="text"
+id="searchInput"
+placeholder="🔍 Search college courses..."
+onkeyup="searchCourses()">
+
+<div id="searchResults"></div>
+
+<br>
+
+<button onclick="openPage('engineering-student.html')">
+⚙️ Engineering Students
+</button>
+
+<button onclick="openPage('medical-student.html')">
+🩺 Medical Students
+</button>
+
+<button onclick="openPage('arts-student.html')">
+🎨 Arts & Science Students
+</button>
+
+<button onclick="openPage('commerce-student.html')">
+📚 Commerce Students
+</button>
+
+<button onclick="openPage('government-exams.html')">
+🏛️ Government Exams
+</button>
+
+<button onclick="openPage('higher-studies.html')">
+🎓 Higher Studies
+</button>
+
+<button onclick="openPage('skills.html')">
+🛠️ Skill Development
+</button>
+
+<button onclick="openPage('top-companies.html')">
+🏢 Top Companies
+</button>
+
+<button onclick="openPage('resume.html')">
+📄 Resume Builder
+</button>
+
+<button onclick="openPage('interview.html')">
+🎤 Interview Preparation
+</button>
+
+<button onclick="openPage('placement.html')">
+🏢 Placement Preparation
+</button>
+</div>
+
+<script>
+
+const allCollegeCourses = [
+
+{name:"Software Engineer"},
+{name:"Data Scientist"},
+{name:"AI Engineer"},
+{name:"Cyber Security Engineer"},
+{name:"Cloud Engineer"},
+{name:"DevOps Engineer"},
+{name:"Full Stack Developer"},
+{name:"MBA"},
+{name:"MCA"},
+{name:"M.Tech"},
+{name:"M.E"},
+{name:"PhD"},
+{name:"GATE"},
+{name:"CAT"}
+
+];
+
+function searchCourses(){
+
+let input = document.getElementById("searchInput").value.toLowerCase();
+
+let result = document.getElementById("searchResults");
+
+result.innerHTML = "";
+
+if(input=="") return;
+
+allCollegeCourses.forEach(function(course){
+
+if(course.name.toLowerCase().includes(input)){
+
+result.innerHTML += `
+<div class="search-item" onclick="openCollegeCourse('${course.name}')">
+${course.name}
+</div>
+`;
+
+}
+
+});
+
+}
+
+function openCollegeCourse(course){
+
+localStorage.setItem("collegeCourse", course);
+
+window.location.href = "college-details.html";
+
+}
+
+function openPage(page){
+
+window.location.href = page;
+
+}
+
+</script>
+
+</body>
+</html>

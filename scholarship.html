@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Scholarships</title>
+
+<link rel="stylesheet" href="style.css">
+
+</head>
+
+<body>
+
+<header>
+<h1>🎓 Scholarships</h1>
+<p>Explore scholarships for students after 10th, 12th and Graduation.</p>
+</header>
+
+<div class="container">
+
+<button onclick="openCourse('Central Sector Scholarship')">Central Sector Scholarship</button>
+
+<button onclick="openCourse('Pragati Scholarship (AICTE)')">Pragati Scholarship (AICTE)</button>
+
+<button onclick="openCourse('Saksham Scholarship (AICTE)')">Saksham Scholarship (AICTE)</button>
+
+<button onclick="openCourse('National Scholarship Portal (NSP)')">National Scholarship Portal (NSP)</button>
+
+<button onclick="openCourse('First Graduate Scholarship (Tamil Nadu)')">First Graduate Scholarship (Tamil Nadu)</button>
+
+<button onclick="openCourse('BC/MBC Scholarship (Tamil Nadu)')">BC/MBC Scholarship (Tamil Nadu)</button>
+
+<button onclick="openCourse('SC/ST Scholarship')">SC/ST Scholarship</button>
+
+<button onclick="openCourse('UGO Scholarship')">UGO Scholarship</button>
+
+<br><br>
+
+<a href="index.html">
+<button>⬅ Back to Home</button>
+</a>
+
+</div>
+
+<footer>
+<p>© 2026 Career Guidance Website</p>
+</footer>
+
+<script>
+function openCourse(courseName){
+    localStorage.setItem("course", courseName);
+    window.location.href="course-details.html";
+}
+</script>
+
+</body>
+</html>

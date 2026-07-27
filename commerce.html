@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Commerce</title>
+<link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<header>
+<h1>💼 Commerce Courses</h1>
+<p>Explore commerce careers after 12th.</p>
+</header>
+
+<div class="container">
+  <button onclick="openCourse('B.Com')">
+B.Com (Bachelor of Commerce)
+</button>
+
+<button onclick="openCourse('B.Com General')">
+B.Com (General)
+</button>
+
+<button onclick="openCourse('B.Com Accounting and Finance')">
+B.Com Accounting & Finance
+</button>
+
+<button onclick="openCourse('B.Com Banking and Insurance')">
+B.Com Banking & Insurance
+</button>
+
+<button onclick="openCourse('B.Com Corporate Secretaryship')">
+B.Com Corporate Secretaryship
+</button>
+
+<button onclick="openCourse('B.Com Computer Applications')">
+B.Com Computer Applications
+</button>
+
+<button onclick="openCourse('B.Com Professional Accounting')">
+B.Com Professional Accounting
+</button>
+
+<button onclick="openCourse('B.Com Taxation')">
+B.Com Taxation
+</button>
+
+<button onclick="openCourse('B.Com E-Commerce')">
+B.Com E-Commerce
+</button>
+
+<button onclick="openCourse('B.Com Business Analytics')">
+B.Com Business Analytics
+</button>
+
+<button onclick="openCourse('BBA')">
+BBA (Bachelor of Business Administration)
+</button>
+
+<button onclick="openCourse('BBA Aviation Management')">
+BBA Aviation Management
+</button>
+
+<button onclick="openCourse('BBA Logistics and Supply Chain Management')">
+BBA Logistics & Supply Chain Management
+</button>
+
+<button onclick="openCourse('BBA Hospital Management')">
+BBA Hospital Management
+</button>
+
+<button onclick="openCourse('BCA')">
+BCA (Bachelor of Computer Applications)
+</button>
+
+<button onclick="openCourse('CA')">
+CA (Chartered Accountant)
+</button>
+
+<button onclick="openCourse('CS')">
+CS (Company Secretary)
+</button>
+
+<button onclick="openCourse('CMA')">
+CMA (Cost & Management Accountant)
+</button>
+
+<button onclick="openCourse('Bachelor of Economics')">
+Bachelor of Economics
+</button>
+
+<button onclick="openCourse('Bachelor of Accounting and Finance')">
+Bachelor of Accounting & Finance
+</button>
+
+<button onclick="openCourse('Bachelor of Banking and Finance')">
+Bachelor of Banking & Finance
+</button>
+
+<button onclick="openCourse('Bachelor of Financial Markets')">
+Bachelor of Financial Markets
+</button>
+
+<button onclick="openCourse('Bachelor of International Business')">
+Bachelor of International Business
+</button>
+
+<button onclick="openCourse('Diploma in Banking and Finance')">
+Diploma in Banking & Finance
+</button>
+
+<button onclick="openCourse('Diploma in Financial Accounting')">
+Diploma in Financial Accounting
+</button>
+
+<button onclick="openCourse('Diploma in Office Management')">
+Diploma in Office Management
+</button>
+
+<button onclick="openCourse('Diploma in Retail Management')">
+Diploma in Retail Management
+</button>
+
+<button onclick="openCourse('Diploma in Digital Marketing')">
+Diploma in Digital Marketing
+</button>
+
+<button onclick="openCourse('Diploma in Logistics Management')">
+Diploma in Logistics Management
+</button>
+
+<button onclick="openCourse('Diploma in E-Commerce')">
+Diploma in E-Commerce
+</button>
+
+<h2>Popular Commerce Courses</h2>
+
+<ul style="text-align:left;display:inline-block;">
+
+</ul>
+
+<br><br>
+
+<a href="index.html">
+<button>⬅ Back to Home</button>
+</a>
+
+</div>
+
+<footer>
+<p>© 2026 Career Guidance Website</p>
+</footer>
+<script>
+function openCourse(courseName){
+localStorage.setItem("course",courseName);
+window.location.href="course-details.html";
+}
+</script>
+</body>
+</html>

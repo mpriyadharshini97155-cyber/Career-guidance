@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Engineering Courses</title>
+
+<style>
+.card-container{
+display:flex;
+flex-wrap:wrap;
+gap:15px;
+}
+
+.card{
+background:white;
+width:250px;
+padding:20px;
+border-radius:10px;
+box-shadow:0 0 10px rgba(0,0,0,0.2);
+text-align:center;
+}
+
+.card h3{
+color:blue;
+}
+
+.card button{
+background:blue;
+color:white;
+border:none;
+padding:10px;
+border-radius:5px;
+cursor:pointer;
+}
+body{
+    font-family: Arial, sans-serif;
+    background:#f5f5f5;
+    text-align:center;
+}
+
+h1{
+    color:#0066cc;
+}
+
+button{
+    width:350px;
+    padding:15px;
+    margin:8px;
+    font-size:16px;
+    border:none;
+    border-radius:8px;
+    background:green
+    color:orange
+    cursor:pointer;
+}
+
+button:hover{
+    background:green
+}
+</style>
+</head>
+
+<body>
+<header>
+<h1>Engineering Courses</h1>
+<p>Select a course to view details.</p>
+</header>
+
+<div class="container">
+
+
+
+
+<button onclick="openCourse('Computer Science Engineering')">Computer Science Engineering</button>
+
+<button onclick="openCourse('Information Technology')">Information Technology</button>
+
+<button onclick="openCourse('Artificial Intelligence and Data Science')">Artificial Intelligence and Data Science</button>
+
+<button onclick="openCourse('Artificial Intelligence and Machine Learning')">Artificial Intelligence and Machine Learning</button>
+
+<button onclick="openCourse('Cyber Security Engineering')">Cyber Security Engineering</button>
+
+<button onclick="openCourse('Data Science Engineering')">Data Science Engineering</button>
+
+<button onclick="openCourse('Electronics and Communication Engineering')">Electronics and Communication Engineering</button>
+
+<button onclick="openCourse('Electrical and Electronics Engineering')">Electrical and Electronics Engineering</button>
+
+<button onclick="openCourse('Electronics and Instrumentation Engineering')">Electronics and Instrumentation Engineering</button>
+
+<button onclick="openCourse('Mechanical Engineering')">Mechanical Engineering</button>
+
+<button onclick="openCourse('Civil Engineering')">Civil Engineering</button>
+
+<button onclick="openCourse('Automobile Engineering')">Automobile Engineering</button>
+
+<button onclick="openCourse('Mechatronics Engineering')">Mechatronics Engineering</button>
+
+<button onclick="openCourse('Robotics and Automation Engineering')">Robotics and Automation Engineering</button>
+
+<button onclick="openCourse('Aeronautical Engineering')">Aeronautical Engineering</button>
+
+<button onclick="openCourse('Aerospace Engineering')">Aerospace Engineering</button>
+
+<button onclick="openCourse('Biomedical Engineering')">Biomedical Engineering</button>
+
+<button onclick="openCourse('Biotechnology Engineering')">Biotechnology Engineering</button>
+
+<button onclick="openCourse('Chemical Engineering')">Chemical Engineering</button>
+
+<button onclick="openCourse('Agricultural Engineering')">Agricultural Engineering</button>
+
+<button onclick="openCourse('Environmental Engineering')">Environmental Engineering</button>
+
+<button onclick="openCourse('Food Technology')">Food Technology</button>
+
+<button onclick="openCourse('Textile Engineering')">Textile Engineering</button>
+
+<button onclick="openCourse('Petroleum Engineering')">Petroleum Engineering</button>
+
+<button onclick="openCourse('Marine Engineering')">Marine Engineering</button>
+
+<button onclick="openCourse('Mining Engineering')">Mining Engineering</button>
+
+<button onclick="openCourse('Production Engineering')">Production Engineering</button>
+
+<button onclick="openCourse('Industrial Engineering')">Industrial Engineering</button>
+
+<button onclick="openCourse('Metallurgical Engineering')">Metallurgical Engineering</button>
+
+<button onclick="openCourse('Instrumentation Engineering')">Instrumentation Engineering</button>
+
+<script>
+function openCourse(course){
+    localStorage.setItem("course", course);
+    window.location.href = "course-details.html";
+}
+</script>
+
+</body>
+</html>

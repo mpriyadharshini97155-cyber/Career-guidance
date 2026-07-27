@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Career Guidance for 12th Students</title>
+
+<link rel="stylesheet" href="style.css">
+
+</head>
+
+<body>
+
+<header>
+<h1>🎓 Career Guidance for 12th Students</h1>
+<p>Choose the right career path after 12th.</p>
+</header>
+
+<div class="container">
+
+<input type="text" id="searchInput" placeholder="🔍 Search any course..." onkeyup="searchCourses()">
+
+<div id="searchResults"></div>
+
+<br>
+
+<a href="engineering.html"><button>Engineering</button></a>
+
+<a href="medical.html"><button>Medical</button></a>
+
+<a href="commerce.html"><button>Commerce</button></a>
+
+<a href="arts.html"><button>Arts & Science</button></a>
+
+<a href="diploma.html"><button>Diploma</button></a>
+
+<a href="gov.html"><button>Government Exams</button></a>
+
+<a href="scholarship.html"><button>Scholarships</button></a>
+
+<a href="about.html"><button>About</button></a>
+
+</div>
+
+<footer>
+<p>Mini Project © 2026</p>
+</footer>
+
+<script>
+
+
+const allCourses = [
+
+
+/* Engineering */
+
+{name:"Computer Science Engineering"},
+{name:"Information Technology"},
+{name:"Artificial Intelligence and Data Science"},
+{name:"Artificial Intelligence and Machine Learning"},
+{name:"Cyber Security Engineering"},
+{name:"Data Science Engineering"},
+{name:"Electronics and Communication Engineering"},
+{name:"Electrical and Electronics Engineering"},
+{name:"Electronics and Instrumentation Engineering"},
+{name:"Mechanical Engineering"},
+{name:"Civil Engineering"},
+{name:"Automobile Engineering"},
+{name:"Mechatronics Engineering"},
+{name:"Robotics and Automation Engineering"},
+{name:"Aeronautical Engineering"},
+{name:"Aerospace Engineering"},
+{name:"Chemical Engineering"},
+{name:"Biomedical Engineering"},
+{name:"Industrial Engineering"},
+{name:"Agricultural Engineering"},
+{name:"Marine Engineering"},
+{name:"Mining Engineering"},
+{name:"Petroleum Engineering"},
+{name:"Textile Engineering"},
+{name:"Production Engineering"},
+{name:"Manufacturing Engineering"},
+{name:"Metallurgical Engineering"},
+{name:"Environmental Engineering"},
+{name:"Food Technology"},
+{name:"Printing Technology"},
+/* Medical */
+
+{name:"MBBS"},
+{name:"BDS"},
+{name:"BAMS"},
+{name:"BHMS"},
+{name:"BSMS"},
+{name:"BUMS"},
+{name:"B.V.Sc & AH"},
+{name:"B.Sc Nursing"},
+{name:"Post Basic B.Sc Nursing"},
+{name:"GNM Nursing"},
+{name:"ANM Nursing"},
+{name:"B.Pharm"},
+{name:"D.Pharm"},
+{name:"Pharm.D"},
+{name:"BPT (Bachelor of Physiotherapy)"},
+{name:"BOT (Bachelor of Occupational Therapy)"},
+{name:"B.Sc Medical Laboratory Technology"},
+{name:"B.Sc Radiology and Imaging Technology"},
+{name:"B.Sc Operation Theatre Technology"},
+{name:"B.Sc Dialysis Technology"},
+{name:"B.Sc Cardiac Technology"},
+{name:"B.Sc Cardio Pulmonary Perfusion Technology"},
+{name:"B.Sc Optometry"},
+{name:"B.Sc Emergency Care Technology"},
+{name:"B.Sc Physician Assistant"},
+{name:"B.Sc Anesthesia Technology"},
+{name:"B.Sc Neuro Electrophysiology"},
+{name:"B.Sc Audiology and Speech Language Pathology"},
+{name:"B.Sc Respiratory Therapy"},
+{name:"B.Sc Nutrition and Dietetics"},
+{name:"B.Sc Biotechnology"},
+{name:"B.Sc Microbiology"},
+{name:"B.Sc Biochemistry"},
+{name:"B.Sc Psychology"},
+/* Commerce */
+
+{name:"B.Com"},
+{name:"B.Com General"},
+{name:"B.Com Accounting and Finance"},
+{name:"B.Com Computer Applications"},
+{name:"B.Com Professional Accounting"},
+{name:"B.Com Banking and Insurance"},
+{name:"B.Com Corporate Secretaryship"},
+{name:"B.Com Finance"},
+{name:"B.Com Taxation"},
+{name:"B.Com E-Commerce"},
+{name:"B.Com Marketing Management"},
+{name:"BBA"},
+{name:"BMS (Bachelor of Management Studies)"},
+{name:"BBM (Bachelor of Business Management)"},
+{name:"BCA"},
+{name:"CA (Chartered Accountancy)"},
+{name:"CS (Company Secretary)"},
+{name:"CMA (Cost and Management Accountancy)"},
+{name:"Bachelor of Economics"},
+{name:"Bachelor of Hotel Management (BHM)"},
+{name:"Bachelor of Travel and Tourism Management"},
+/* Arts & Science */
+
+{name:"B.A English"},
+{name:"B.A Tamil"},
+{name:"B.A History"},
+{name:"B.A Economics"},
+{name:"B.A Political Science"},
+{name:"B.A Sociology"},
+{name:"B.A Public Administration"},
+{name:"B.A Journalism and Mass Communication"},
+{name:"B.A Visual Communication"},
+{name:"B.A Psychology"},
+{name:"B.A Criminology"},
+{name:"B.A Defence Studies"},
+
+{name:"B.Sc Mathematics"},
+{name:"B.Sc Physics"},
+{name:"B.Sc Chemistry"},
+{name:"B.Sc Computer Science"},
+{name:"B.Sc Information Technology"},
+{name:"B.Sc Data Science"},
+{name:"B.Sc Artificial Intelligence"},
+{name:"B.Sc Statistics"},
+{name:"B.Sc Biotechnology"},
+{name:"B.Sc Microbiology"},
+{name:"B.Sc Biochemistry"},
+{name:"B.Sc Zoology"},
+{name:"B.Sc Botany"},
+{name:"B.Sc Environmental Science"},
+{name:"B.Sc Nutrition and Dietetics"},
+{name:"B.Sc Psychology"},
+{name:"B.Sc Electronics"},
+{name:"B.Sc Geography"},
+{name:"B.Sc Forensic Science"},
+/* Diploma */
+
+{name:"Diploma in Mechanical Engineering"},
+{name:"Diploma in Civil Engineering"},
+{name:"Diploma in Computer Engineering"},
+{name:"Diploma in Information Technology"},
+{name:"Diploma in Electrical and Electronics Engineering"},
+{name:"Diploma in Electronics and Communication Engineering"},
+{name:"Diploma in Automobile Engineering"},
+{name:"Diploma in Mechatronics Engineering"},
+{name:"Diploma in Robotics Engineering"},
+{name:"Diploma in Chemical Engineering"},
+{name:"Diploma in Textile Technology"},
+{name:"Diploma in Agricultural Engineering"},
+
+/* Government Exams */
+
+{name:"UPSC Civil Services"},
+{name:"UPSC NDA"},
+{name:"UPSC CDS"},
+{name:"SSC CGL"},
+{name:"SSC CHSL"},
+{name:"SSC MTS"},
+{name:"TNPSC Group 1"},
+{name:"TNPSC Group 2"},
+{name:"TNPSC Group 2A"},
+{name:"TNPSC Group 4"},
+{name:"RRB NTPC"},
+{name:"RRB Group D"},
+{name:"IBPS PO"},
+{name:"IBPS Clerk"},
+{name:"SBI PO"},
+{name:"SBI Clerk"},
+{name:"Indian Army"},
+{name:"Indian Navy"},
+{name:"Indian Air Force"},
+{name:"Police Recruitment"},
+
+/* Scholarships */
+
+{name:"Central Sector Scholarship"},
+{name:"Pragati Scholarship (AICTE)"},
+{name:"Saksham Scholarship"},
+{name:"AICTE Swanath Scholarship"},
+{name:"UGO Scholarship"},
+{name:"Reliance Foundation Scholarship"},
+{name:"Inspire Scholarship"},
+{name:"National Scholarship Portal (NSP)"},
+{name:"First Graduate Scholarship"},
+{name:"BC/MBC Scholarship"},
+{name:"SC/ST Scholarship"}
+
+];
+
+function searchCourses(){
+
+let input=document.getElementById("searchInput").value.toLowerCase();
+
+let result=document.getElementById("searchResults");
+
+result.innerHTML="";
+
+if(input=="") return;
+
+allCourses.forEach(function(course){
+
+if(course.name.toLowerCase().includes(input)){
+
+result.innerHTML += `
+<div class="search-item" onclick="openCourse('${course.name}')">
+${course.name}
+</div>`;
+
+}
+
+});
+
+}
+
+function openCourse(course){
+
+localStorage.setItem("course",course);
+
+window.location.href="course-details.html";
+
+}
+
+</script>
+
+</body>
+</html>

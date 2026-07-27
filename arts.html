@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Arts & Science Courses</title>
+
+<link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<header>
+<h1>🎨 Arts & Science Courses</h1>
+<p>Explore Arts & Science courses after 12th.</p>
+</header>
+
+<div class="container">
+
+<button onclick="openCourse('BA English')">B.A. English</button>
+
+<button onclick="openCourse('BA Tamil')">B.A. Tamil</button>
+
+<button onclick="openCourse('BA History')">B.A. History</button>
+
+<button onclick="openCourse('BA Economics')">B.A. Economics</button>
+
+<button onclick="openCourse('BA Political Science')">B.A. Political Science</button>
+
+<button onclick="openCourse('BA Sociology')">B.A. Sociology</button>
+
+<button onclick="openCourse('BA Public Administration')">B.A. Public Administration</button>
+
+<button onclick="openCourse('BA Journalism and Mass Communication')">B.A. Journalism & Mass Communication</button>
+
+<button onclick="openCourse('BA Psychology')">B.A. Psychology</button>
+
+<button onclick="openCourse('BA Criminology')">B.A. Criminology</button>
+
+<button onclick="openCourse('BA Defence and Strategic Studies')">B.A. Defence Studies</button>
+
+<button onclick="openCourse('B.Sc Mathematics')">B.Sc. Mathematics</button>
+
+<button onclick="openCourse('B.Sc Physics')">B.Sc. Physics</button>
+
+<button onclick="openCourse('B.Sc Chemistry')">B.Sc. Chemistry</button>
+
+<button onclick="openCourse('B.Sc Computer Science')">B.Sc. Computer Science</button>
+
+<button onclick="openCourse('B.Sc Information Technology')">B.Sc. Information Technology</button>
+
+<button onclick="openCourse('B.Sc Data Science')">B.Sc. Data Science</button>
+
+<button onclick="openCourse('B.Sc Artificial Intelligence')">B.Sc. Artificial Intelligence</button>
+
+<button onclick="openCourse('B.Sc Statistics')">B.Sc. Statistics</button>
+
+<button onclick="openCourse('B.Sc Biotechnology')">B.Sc. Biotechnology</button>
+
+<button onclick="openCourse('B.Sc Microbiology')">B.Sc. Microbiology</button>
+
+<button onclick="openCourse('B.Sc Biochemistry')">B.Sc. Biochemistry</button>
+
+<button onclick="openCourse('B.Sc Zoology')">B.Sc. Zoology</button>
+
+<button onclick="openCourse('B.Sc Botany')">B.Sc. Botany</button>
+
+<button onclick="openCourse('B.Sc Environmental Science')">B.Sc. Environmental Science</button>
+
+<button onclick="openCourse('B.Sc Nutrition and Dietetics')">B.Sc. Nutrition & Dietetics</button>
+
+<button onclick="openCourse('B.Sc Electronics')">B.Sc. Electronics</button>
+
+<br><br>
+
+<a href="index.html">
+<button>⬅ Back to Home</button>
+</a>
+
+</div>
+
+<footer>
+<p>© 2026 Career Guidance Website</p>
+</footer>
+
+<script>
+function openCourse(courseName){
+    localStorage.setItem("course", courseName);
+    window.location.href="course-details.html";
+}
+</script>
+
+</body>
+</html>

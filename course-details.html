@@ -1,0 +1,1677 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Course Details</title>
+
+<style>
+body{
+font-family:Arial,sans-serif;
+background:#f2f2f2;
+margin:20px;
+}
+
+.container{
+background:white;
+padding:20px;
+border-radius:10px;
+box-shadow:0 0 10px rgba(0,0,0,0.2);
+}
+
+h1{
+color:#0066cc;
+}
+
+h3{
+margin-top:15px;
+color:#333;
+}
+</style>
+
+</head>
+
+<body>
+
+<div class="container">
+
+<h1 id="courseName"></h1>
+
+<h3>📖 Course Description</h3>
+<p id="description"></p>
+
+<h3>⏳ Duration</h3>
+<p id="duration"></p>
+
+<h3>✅ Eligibility</h3>
+<p id="eligibility"></p>
+
+<h3>📝 Entrance Exams</h3>
+<p id="exams"></p>
+
+<h3>🏫 Top Colleges</h3>
+<p id="colleges"></p>
+
+<h3>💼 Career Opportunities</h3>
+<p id="career"></p>
+
+<h3>💰 Average Salary</h3>
+<p id="salary"></p>
+
+<h3>📝 Quiz</h3>
+
+<a href="quiz.html">
+<button>Take Quiz</button>
+</a>
+
+</div>
+
+<script>
+let course = localStorage.getItem("course");
+
+document.getElementById("courseName").innerHTML = course;
+
+const courses = {
+
+"Computer Science Engineering":{
+description:"Computer Science Engineering focuses on programming, software development, Artificial Intelligence, databases, networking and computer systems.",
+duration:"4 Years",
+eligibility:"12th Pass with Physics, Chemistry and Mathematics (PCM)",
+exams:"TNEA, JEE Main, JEE Advanced",
+colleges:"IIT Madras, NIT Trichy, Anna University",
+career:"Software Engineer, AI Engineer, Web Developer, Data Scientist",
+salary:"₹4–10 LPA"
+},
+
+"Information Technology":{
+description:"Information Technology focuses on software development, networking, cloud computing and databases.",
+duration:"4 Years",
+eligibility:"12th Pass with Physics, Chemistry and Mathematics (PCM)",
+exams:"TNEA, JEE Main",
+colleges:"Anna University, PSG College of Technology",
+career:"Software Developer, Cloud Engineer, Network Engineer",
+salary:"₹4–9 LPA"
+},
+
+"Artificial Intelligence and Data Science":{
+description:"Focuses on Artificial Intelligence, Machine Learning and Data Science.",
+duration:"4 Years",
+eligibility:"12th Pass with Physics, Chemistry and Mathematics (PCM)",
+exams:"TNEA, JEE Main",
+colleges:"Anna University, PSG College of Technology",
+career:"AI Engineer, Data Scientist, Machine Learning Engineer",
+salary:"₹5–12 LPA"
+},
+"Artificial Intelligence and Machine Learning":{
+description:"Focuses on Artificial Intelligence, Machine Learning and Deep Learning.",
+duration:"4 Years",
+eligibility:"12th Pass with Physics, Chemistry and Mathematics (PCM)",
+exams:"TNEA, JEE Main",
+colleges:"Anna University, VIT",
+career:"AI Engineer, Machine Learning Engineer",
+salary:"₹5–12 LPA"
+},
+
+"Cyber Security Engineering":{
+description:"Focuses on Cyber Security, Ethical Hacking and Network Security.",
+duration:"4 Years",
+eligibility:"12th Pass with Physics, Chemistry and Mathematics (PCM)",
+exams:"TNEA, JEE Main",
+colleges:"Anna University",
+career:"Cyber Security Analyst, Ethical Hacker",
+salary:"₹5–11 LPA"
+},
+
+"Data Science Engineering":{
+description:"Focuses on Data Analysis, Big Data and Machine Learning.",
+duration:"4 Years",
+eligibility:"12th Pass with Physics, Chemistry and Mathematics (PCM)",
+exams:"TNEA, JEE Main",
+colleges:"Anna University",
+career:"Data Scientist, Data Analyst",
+salary:"₹5–10 LPA"
+},
+
+"Electronics and Communication Engineering":{
+description:"Focuses on electronics, communication systems and embedded systems.",
+duration:"4 Years",
+eligibility:"12th Pass with Physics, Chemistry and Mathematics (PCM)",
+exams:"TNEA, JEE Main",
+colleges:"Anna University, NIT Trichy",
+career:"Electronics Engineer, Communication Engineer",
+salary:"₹4–8 LPA"
+},
+
+"Electrical and Electronics Engineering":{
+description:"Focuses on electrical systems, power generation and electronics.",
+duration:"4 Years",
+eligibility:"12th Pass with Physics, Chemistry and Mathematics (PCM)",
+exams:"TNEA, JEE Main",
+colleges:"Anna University",
+career:"Electrical Engineer, Power Engineer",
+salary:"₹4–8 LPA"
+},
+
+"Electronics and Instrumentation Engineering":{
+description:"Focuses on instrumentation, automation and control systems.",
+duration:"4 Years",
+eligibility:"12th Pass with Physics, Chemistry and Mathematics (PCM)",
+exams:"TNEA",
+colleges:"Anna University",
+career:"Instrumentation Engineer",
+salary:"₹4–8 LPA"
+},
+
+"Mechanical Engineering":{
+description:"Focuses on designing, manufacturing and maintaining machines and mechanical systems.",
+duration:"4 Years",
+eligibility:"12th Pass with Physics, Chemistry and Mathematics (PCM)",
+exams:"TNEA, JEE Main",
+colleges:"Anna University, NIT Trichy",
+career:"Mechanical Engineer, Design Engineer, Production Engineer",
+salary:"₹4–8 LPA"
+},
+
+"Civil Engineering":{
+description:"Focuses on planning, designing and constructing buildings, roads and bridges.",
+duration:"4 Years",
+eligibility:"12th Pass with Physics, Chemistry and Mathematics (PCM)",
+exams:"TNEA, JEE Main",
+colleges:"Anna University, NIT Trichy",
+career:"Civil Engineer, Structural Engineer, Site Engineer",
+salary:"₹3–8 LPA"
+},
+
+"Automobile Engineering":{
+description:"Focuses on designing, manufacturing and maintaining automobiles.",
+duration:"4 Years",
+eligibility:"12th Pass with Physics, Chemistry and Mathematics (PCM)",
+exams:"TNEA, JEE Main",
+colleges:"Anna University",
+career:"Automobile Engineer, Vehicle Design Engineer",
+salary:"₹4–8 LPA"
+},
+
+"Mechatronics Engineering":{
+description:"Combines Mechanical, Electronics and Computer Engineering.",
+duration:"4 Years",
+eligibility:"12th Pass with Physics, Chemistry and Mathematics (PCM)",
+exams:"TNEA, JEE Main",
+colleges:"Anna University",
+career:"Mechatronics Engineer,Automation Engineer",
+salary:"₹4–9 LPA"
+},
+"Robotics and Automation Engineering":{
+description:"Focuses on robotics, automation and intelligent systems.",
+duration:"4 Years",
+eligibility:"12th Pass with Physics, Chemistry and Mathematics (PCM)",
+exams:"TNEA, JEE Main",
+colleges:"Anna University",
+career:"Robotics Engineer, Automation Engineer",
+salary:"₹5–12 LPA"
+},
+
+"Aeronautical Engineering":{
+description:"Focuses on aircraft design, development and maintenance.",
+duration:"4 Years",
+eligibility:"12th Pass with Physics, Chemistry and Mathematics (PCM)",
+exams:"TNEA, JEE Main",
+colleges:"MIT Chennai",
+career:"Aeronautical Engineer",
+salary:"₹5–10 LPA"
+},
+
+"Aerospace Engineering":{
+description:"Focuses on aircraft and spacecraft technology.",
+duration:"4 Years",
+eligibility:"12th Pass with Physics, Chemistry and Mathematics (PCM)",
+exams:"TNEA, JEE Main",
+colleges:"IIT Madras",
+career:"Aerospace Engineer",
+salary:"₹6–12 LPA"
+},
+
+"Biomedical Engineering":{
+description:"Focuses on medical equipment and healthcare technology.",
+duration:"4 Years",
+eligibility:"12th Pass with Physics, Chemistry and Mathematics (PCM)",
+exams:"TNEA, JEE Main",
+colleges:"Anna University",
+career:"Biomedical Engineer",
+salary:"₹4–8 LPA"
+},
+
+"Biotechnology Engineering":{
+description:"Focuses on biotechnology, genetics and biological research.",
+duration:"4 Years",
+eligibility:"12th Pass with Physics, Chemistry and Mathematics or Biology",
+exams:"TNEA",
+colleges:"Anna University",
+career:"Biotechnology Engineer",
+salary:"₹4–8 LPA"
+},
+
+"Chemical Engineering":{
+description:"Focuses on chemical processes and industrial production.",
+duration:"4 Years",
+eligibility:"12th Pass with Physics, Chemistry and Mathematics (PCM)",
+exams:"TNEA",
+colleges:"Anna University",
+career:"Chemical Engineer",
+salary:"₹4–8 LPA"
+},
+
+"Agricultural Engineering":{
+description:"Focuses on agriculture, irrigation and farm machinery.",
+duration:"4 Years",
+eligibility:"12th Pass with Physics, Chemistry and Mathematics (PCM)",
+exams:"TNEA",
+colleges:"Tamil Nadu Agricultural University",
+career:"Agricultural Engineer",
+salary:"₹4–7 LPA"
+},
+
+"Environmental Engineering":{
+description:"Focuses on environmental protection and pollution control.",
+duration:"4 Years",
+eligibility:"12th Pass with Physics, Chemistry and Mathematics (PCM)",
+exams:"TNEA",
+colleges:"Anna University",
+career:"Environmental Engineer",
+salary:"₹4–8 LPA"
+},
+
+"Food Technology":{
+description:"Focuses on food processing, preservation and quality control.",
+duration:"4 Years",
+eligibility:"12th Pass with Physics, Chemistry and Mathematics or Biology",
+exams:"TNEA",
+colleges:"Anna University",
+career:"Food Technologist",
+salary:"₹4–7 LPA"
+},
+
+"Textile Technology":{
+description:"Focuses on textile manufacturing and fabric production.",
+duration:"4 Years",
+eligibility:"12th Pass with Physics, Chemistry and Mathematics (PCM)",
+exams:"TNEA",
+colleges:"Anna University",
+career:"Textile Engineer",
+salary:"₹3–7 LPA"
+},
+"Marine Engineering":{
+description:"Focuses on ship design, marine systems and ocean engineering.",
+duration:"4 Years",
+eligibility:"12th Pass with Physics, Chemistry and Mathematics (PCM)",
+exams:"TNEA, IMU CET",
+colleges:"Indian Maritime University",
+career:"Marine Engineer",
+salary:"₹6–15 LPA"
+},
+
+"Petroleum Engineering":{
+description:"Focuses on oil and gas exploration, drilling and production.",
+duration:"4 Years",
+eligibility:"12th Pass with Physics, Chemistry and Mathematics (PCM)",
+exams:"TNEA, JEE Main",
+colleges:"Anna University, IIT (Selected)",
+career:"Petroleum Engineer",
+salary:"₹6–12 LPA"
+},
+
+"Mining Engineering":{
+description:"Focuses on mineral extraction, mine planning and safety.",
+duration:"4 Years",
+eligibility:"12th Pass with Physics, Chemistry and Mathematics (PCM)",
+exams:"TNEA, JEE Main",
+colleges:"Anna University",
+career:"Mining Engineer",
+salary:"₹5–10 LPA"
+},
+
+"Production Engineering":{
+description:"Focuses on manufacturing systems, production planning and quality control.",
+duration:"4 Years",
+eligibility:"12th Pass with Physics, Chemistry and Mathematics (PCM)",
+exams:"TNEA",
+colleges:"Anna University",
+career:"Production Engineer",
+salary:"₹4–8 LPA"
+},
+
+"Metallurgical Engineering":{
+description:"Focuses on metals, alloys and material processing.",
+duration:"4 Years",
+eligibility:"12th Pass with Physics, Chemistry and Mathematics (PCM)",
+exams:"TNEA",
+colleges:"Anna University",
+career:"Metallurgical Engineer",
+salary:"₹4–8 LPA"
+},
+
+"Industrial Engineering":{
+description:"Focuses on optimizing production systems, operations and productivity.",
+duration:"4 Years",
+eligibility:"12th Pass with Physics, Chemistry and Mathematics (PCM)",
+exams:"TNEA",
+colleges:"Anna University",
+career:"Industrial Engineer",
+salary:"₹4–8 LPA"
+},
+
+"MBBS":{
+description:"Bachelor of Medicine and Bachelor of Surgery.",
+duration:"5.5 Years",
+eligibility:"12th with Physics, Chemistry and Biology",
+exams:"NEET UG",
+colleges:"AIIMS, JIPMER, Government Medical Colleges",
+career:"Doctor",
+salary:"₹8–20 LPA"
+},
+
+"BDS":{
+description:"Bachelor of Dental Surgery focuses on oral health and dentistry.",
+duration:"5 Years",
+eligibility:"12th with Physics, Chemistry and Biology",
+exams:"NEET UG",
+colleges:"Government Dental Colleges, SRM Dental College",
+career:"Dentist",
+salary:"₹4–10 LPA"
+},
+
+"BAMS":{
+description:"Bachelor of Ayurvedic Medicine and Surgery focuses on Ayurvedic healthcare.",
+duration:"5.5 Years",
+eligibility:"12th with Physics, Chemistry and Biology",
+exams:"NEET UG",
+colleges:"Government Ayurveda Colleges",
+career:"Ayurvedic Doctor",
+salary:"₹4–8 LPA"
+},
+
+"BHMS":{
+description:"Bachelor of Homeopathic Medicine and Surgery focuses on homeopathic treatment.",
+duration:"5.5 Years",
+eligibility:"12th with Physics, Chemistry and Biology",
+exams:"NEET UG",
+colleges:"Government Homeopathy Colleges",
+career:"Homeopathic Doctor",
+salary:"₹4–8 LPA"
+},
+
+"BUMS":{
+description:"Bachelor of Unani Medicine and Surgery focuses on Unani medicine.",
+duration:"5.5 Years",
+eligibility:"12th with Physics, Chemistry and Biology",
+exams:"NEET UG",
+colleges:"Government Unani Colleges",
+career:"Unani Doctor",
+salary:"₹4–8 LPA"
+},
+
+"BSMS":{
+description:"Bachelor of Siddha Medicine and Surgery focuses on Siddha medicine.",
+duration:"5.5 Years",
+eligibility:"12th with Physics, Chemistry and Biology",
+exams:"NEET UG",
+colleges:"Government Siddha Medical Colleges",
+career:"Siddha Doctor",
+salary:"₹4–8 LPA"
+},
+
+"B.Sc Nursing":{
+description:"Focuses on patient care, nursing practice and healthcare.",
+duration:"4 Years",
+eligibility:"12th with Physics, Chemistry and Biology",
+exams:"College Entrance / Merit",
+colleges:"Government Nursing Colleges",
+career:"Staff Nurse, Nursing Officer",
+salary:"₹3–7 LPA"
+},
+
+"B.Pharm":{
+description:"Bachelor of Pharmacy focuses on medicines and pharmaceutical sciences.",
+duration:"4 Years",
+eligibility:"12th with Physics, Chemistry and Biology/Mathematics",
+exams:"College Entrance / Merit",
+colleges:"Government Pharmacy Colleges",
+career:"Pharmacist, Drug Inspector",
+salary:"₹3–6 LPA"
+},
+"Pharm.D":{
+description:"Doctor of Pharmacy focuses on clinical pharmacy and patient care.",
+duration:"6 Years",
+eligibility:"12th with Physics, Chemistry and Biology/Mathematics",
+exams:"College Entrance / Merit",
+colleges:"Government Pharmacy Colleges",
+career:"Clinical Pharmacist, Hospital Pharmacist",
+salary:"₹4–8 LPA"
+},
+
+"BPT":{
+description:"Bachelor of Physiotherapy focuses on physical rehabilitation and movement disorders.",
+duration:"4.5 Years",
+eligibility:"12th with Physics, Chemistry and Biology",
+exams:"College Entrance / Merit",
+colleges:"Government Physiotherapy Colleges",
+career:"Physiotherapist",
+salary:"₹3–7 LPA"
+},
+
+"BOT":{
+description:"Bachelor of Occupational Therapy focuses on rehabilitation and improving daily living skills.",
+duration:"4.5 Years",
+eligibility:"12th with Physics, Chemistry and Biology",
+exams:"College Entrance / Merit",
+colleges:"Government Allied Health Colleges",
+career:"Occupational Therapist",
+salary:"₹3–6 LPA"
+},
+
+"B.Sc Medical Laboratory Technology":{
+description:"Focuses on laboratory testing and medical diagnostics.",
+duration:"3 Years",
+eligibility:"12th with Physics, Chemistry and Biology",
+exams:"College Entrance / Merit",
+colleges:"Government Allied Health Colleges",
+career:"Medical Laboratory Technologist",
+salary:"₹3–6 LPA"
+},
+
+"B.Sc Radiology and Imaging Technology":{
+description:"Focuses on X-ray, CT, MRI and medical imaging.",
+duration:"3 Years",
+eligibility:"12th with Physics, Chemistry and Biology",
+exams:"College Entrance / Merit",
+colleges:"Government Allied Health Colleges",
+career:"Radiology Technologist",
+salary:"₹3–7 LPA"
+},
+
+"B.Sc Optometry":{
+description:"Focuses on eye care, vision testing and optical health.",
+duration:"4 Years",
+eligibility:"12th with Physics, Chemistry and Biology",
+exams:"College Entrance / Merit",
+colleges:"Government Allied Health Colleges",
+career:"Optometrist",
+salary:"₹3–6 LPA"
+},
+"B.Sc Dialysis Technology":{
+description:"Focuses on dialysis treatment for patients with kidney diseases.",
+duration:"3 Years",
+eligibility:"12th with Physics, Chemistry and Biology",
+exams:"College Entrance / Merit",
+colleges:"Government Allied Health Colleges",
+career:"Dialysis Technologist",
+salary:"₹3–6 LPA"
+},
+
+"B.Sc Operation Theatre and Anaesthesia Technology":{
+description:"Focuses on operation theatre management and anaesthesia support.",
+duration:"3 Years",
+eligibility:"12th with Physics, Chemistry and Biology",
+exams:"College Entrance / Merit",
+colleges:"Government Allied Health Colleges",
+career:"Operation Theatre Technologist",
+salary:"₹3–6 LPA"
+},
+
+"B.Sc Cardiac Technology":{
+description:"Focuses on diagnosis and treatment support for heart diseases.",
+duration:"4 Years",
+eligibility:"12th with Physics, Chemistry and Biology",
+exams:"College Entrance / Merit",
+colleges:"Government Allied Health Colleges",
+career:"Cardiac Technologist",
+salary:"₹3–7 LPA"
+},
+
+"B.Sc Anaesthesia Technology":{
+description:"Focuses on assisting anaesthesiologists during surgeries.",
+duration:"3 Years",
+eligibility:"12th with Physics, Chemistry and Biology",
+exams:"College Entrance / Merit",
+colleges:"Government Allied Health Colleges",
+career:"Anaesthesia Technologist",
+salary:"₹3–6 LPA"
+},
+
+"B.Sc Respiratory Therapy":{
+description:"Focuses on treating patients with breathing and lung disorders.",
+duration:"4 Years",
+eligibility:"12th with Physics, Chemistry and Biology",
+exams:"College Entrance / Merit",
+colleges:"Government Allied Health Colleges",
+career:"Respiratory Therapist",
+salary:"₹3–7 LPA"
+},
+
+"B.Sc Perfusion Technology":{
+description:"Focuses on operating heart-lung machines during cardiac surgery.",
+duration:"4 Years",
+eligibility:"12th with Physics, Chemistry and Biology",
+exams:"College Entrance / Merit",
+colleges:"Government Allied Health Colleges",
+career:"Perfusion Technologist",
+salary:"₹4–8 LPA"
+},
+
+"B.Sc Emergency Care Technology":{
+description:"Focuses on emergency medical care and trauma management.",
+duration:"4 Years",
+eligibility:"12th with Physics, Chemistry and Biology",
+exams:"College Entrance / Merit",
+colleges:"Government Allied Health Colleges",
+career:"Emergency Care Technologist",
+salary:"₹3–7 LPA"
+},
+
+"B.Sc Physician Assistant":{
+description:"Focuses on assisting doctors in diagnosis and patient care.",
+duration:"4 Years",
+eligibility:"12th with Physics, Chemistry and Biology",
+exams:"College Entrance / Merit",
+colleges:"Government Allied Health Colleges",
+career:"Physician Assistant",
+salary:"₹3–7 LPA"
+},
+"B.Sc Critical Care Technology":{
+description:"Focuses on caring for critically ill patients in ICU and emergency units.",
+duration:"4 Years",
+eligibility:"12th with Physics, Chemistry and Biology",
+exams:"College Entrance / Merit",
+colleges:"Government Allied Health Colleges",
+career:"Critical Care Technologist",
+salary:"₹3–7 LPA"
+},
+
+"B.Sc Neuro Electrophysiology Technology":{
+description:"Focuses on diagnosing disorders of the brain and nervous system.",
+duration:"4 Years",
+eligibility:"12th with Physics, Chemistry and Biology",
+exams:"College Entrance / Merit",
+colleges:"Government Allied Health Colleges",
+career:"Neuro Technologist",
+salary:"₹3–7 LPA"
+},
+
+"B.Sc Audiology and Speech Language Pathology":{
+description:"Focuses on hearing disorders, speech therapy and communication disorders.",
+duration:"4 Years",
+eligibility:"12th with Physics, Chemistry and Biology",
+exams:"College Entrance / Merit",
+colleges:"Government Allied Health Colleges",
+career:"Audiologist, Speech Therapist",
+salary:"₹3–7 LPA"
+},
+
+"B.Sc Medical Record Science":{
+description:"Focuses on maintaining and managing patient medical records.",
+duration:"3 Years",
+eligibility:"12th with Physics, Chemistry and Biology",
+exams:"College Entrance / Merit",
+colleges:"Government Allied Health Colleges",
+career:"Medical Record Officer",
+salary:"₹3–6 LPA"
+},
+
+"B.Sc Imaging Technology":{
+description:"Focuses on diagnostic imaging using X-ray, CT and MRI equipment.",
+duration:"3 Years",
+eligibility:"12th with Physics, Chemistry and Biology",
+exams:"College Entrance / Merit",
+colleges:"Government Allied Health Colleges",
+career:"Imaging Technologist",
+salary:"₹3–6 LPA"
+},
+
+"B.Sc Nuclear Medicine Technology":{
+description:"Focuses on nuclear imaging and radioactive medicine for diagnosis and treatment.",
+duration:"3 Years",
+eligibility:"12th with Physics, Chemistry and Biology",
+exams:"College Entrance / Merit",
+colleges:"Government Allied Health Colleges",
+career:"Nuclear Medicine Technologist",
+salary:"₹4–8 LPA"
+},
+
+"B.Sc Health Information Management":{
+description:"Focuses on healthcare data management and hospital information systems.",
+duration:"3 Years",
+eligibility:"12th with Physics, Chemistry and Biology",
+exams:"College Entrance / Merit",
+colleges:"Government Allied Health Colleges",
+career:"Health Information Manager",
+salary:"₹3–6 LPA"
+},
+"B.Sc Medical Sociology":{
+description:"Focuses on healthcare systems, community health and medical social work.",
+duration:"3 Years",
+eligibility:"12th with Physics, Chemistry and Biology",
+exams:"College Entrance / Merit",
+colleges:"Government Allied Health Colleges",
+career:"Medical Social Worker",
+salary:"₹3–5 LPA"
+},
+
+"B.Sc Hospital Administration":{
+description:"Focuses on hospital management, healthcare administration and operations.",
+duration:"3 Years",
+eligibility:"12th with Physics, Chemistry and Biology",
+exams:"College Entrance / Merit",
+colleges:"Government Allied Health Colleges",
+career:"Hospital Administrator",
+salary:"₹4–8 LPA"
+},
+
+"B.Sc Public Health":{
+description:"Focuses on disease prevention, health education and community healthcare.",
+duration:"3 Years",
+eligibility:"12th with Physics, Chemistry and Biology",
+exams:"College Entrance / Merit",
+colleges:"Government Colleges",
+career:"Public Health Officer",
+salary:"₹3–7 LPA"
+},
+
+"B.Sc Nutrition and Dietetics":{
+description:"Focuses on nutrition, food science and diet planning.",
+duration:"3 Years",
+eligibility:"12th with Physics, Chemistry and Biology",
+exams:"College Entrance / Merit",
+colleges:"Government Colleges",
+career:"Dietitian, Nutritionist",
+salary:"₹3–6 LPA"
+},
+
+"B.Sc Forensic Science":{
+description:"Focuses on crime investigation using scientific techniques.",
+duration:"3 Years",
+eligibility:"12th with Physics, Chemistry and Biology/Mathematics",
+exams:"College Entrance / Merit",
+colleges:"Government Colleges",
+career:"Forensic Scientist",
+salary:"₹4–8 LPA"
+},
+"B.Com":{
+description:"Bachelor of Commerce focuses on accounting, finance, taxation and business management.",
+duration:"3 Years",
+eligibility:"12th Pass (Commerce/Any Stream)",
+exams:"Merit / College Admission",
+colleges:"Loyola College, MCC, PSG College",
+career:"Accountant, Auditor, Tax Consultant",
+salary:"₹3–6 LPA"
+},
+
+"B.Com Accounting and Finance":{
+description:"Focuses on accounting, finance and financial management.",
+duration:"3 Years",
+eligibility:"12th Pass (Commerce/Any Stream)",
+exams:"Merit / College Admission",
+colleges:"Loyola College, MCC",
+career:"Accountant, Financial Analyst",
+salary:"₹3–7 LPA"
+},
+
+"B.Com Banking and Insurance":{
+description:"Focuses on banking operations, insurance and financial services.",
+duration:"3 Years",
+eligibility:"12th Pass (Commerce/Any Stream)",
+exams:"Merit / College Admission",
+colleges:"Government Arts Colleges",
+career:"Bank Officer, Insurance Executive",
+salary:"₹3–6 LPA"
+},
+
+"B.Com Corporate Secretaryship":{
+description:"Focuses on company law, corporate governance and secretarial practice.",
+duration:"3 Years",
+eligibility:"12th Pass (Commerce/Any Stream)",
+exams:"Merit / College Admission",
+colleges:"Government Arts Colleges",
+career:"Company Secretary Assistant",
+salary:"₹3–6 LPA"
+},
+
+"BBA":{
+description:"Bachelor of Business Administration focuses on business management and entrepreneurship.",
+duration:"3 Years",
+eligibility:"12th Pass (Any Stream)",
+exams:"Merit / College Admission",
+colleges:"Loyola College, PSG College",
+career:"Business Manager, HR Executive",
+salary:"₹3–7 LPA"
+},
+
+"BCA":{
+description:"Bachelor of Computer Applications focuses on computer programming, software development and IT.",
+duration:"3 Years",
+eligibility:"12th Pass (Any Stream/Mathematics preferred)",
+exams:"Merit / College Admission",
+colleges:"MCC, PSG College",
+career:"Software Developer, Web Developer",
+salary:"₹4–8 LPA"
+},
+"Chartered Accountancy (CA)":{
+description:"Chartered Accountancy focuses on accounting, auditing, taxation and finance.",
+duration:"4.5–5 Years",
+eligibility:"12th Pass (Any Stream)",
+exams:"CA Foundation, CA Intermediate, CA Final",
+colleges:"ICAI",
+career:"Chartered Accountant, Auditor, Tax Consultant",
+salary:"₹7–15 LPA"
+},
+
+"Company Secretary (CS)":{
+description:"Focuses on company law, corporate governance and legal compliance.",
+duration:"3–4 Years",
+eligibility:"12th Pass (Any Stream)",
+exams:"CSEET, Executive, Professional",
+colleges:"ICSI",
+career:"Company Secretary",
+salary:"₹6–12 LPA"
+},
+
+"Cost and Management Accountancy (CMA)":{
+description:"Focuses on cost accounting, financial management and business strategy.",
+duration:"3–4 Years",
+eligibility:"12th Pass (Any Stream)",
+exams:"CMA Foundation, Intermediate, Final",
+colleges:"ICMAI",
+career:"Cost Accountant, Financial Analyst",
+salary:"₹6–12 LPA"
+},
+
+"B.Com Computer Applications":{
+description:"Combines commerce subjects with computer applications and IT.",
+duration:"3 Years",
+eligibility:"12th Pass (Commerce/Any Stream)",
+exams:"Merit / College Admission",
+colleges:"Government Arts Colleges",
+career:"Accountant, Software Support Executive",
+salary:"₹3–6 LPA"
+},
+
+"B.Com Professional Accounting":{
+description:"Focuses on advanced accounting, taxation and auditing.",
+duration:"3 Years",
+eligibility:"12th Pass (Commerce/Any Stream)",
+exams:"Merit / College Admission",
+colleges:"Government Arts Colleges",
+career:"Professional Accountant, Auditor",
+salary:"₹3–7 LPA"
+},
+
+"B.Economics":{
+description:"Focuses on economics, finance, banking and public policy.",
+duration:"3 Years",
+eligibility:"12th Pass (Any Stream)",
+exams:"Merit / College Admission",
+colleges:"Loyola College, MCC",
+career:"Economist, Banking Officer, Financial Analyst",
+salary:"₹4–8 LPA"
+},
+"B.Com Information Systems Management":{
+description:"Focuses on commerce, information systems and business technology.",
+duration:"3 Years",
+eligibility:"12th Pass (Commerce/Any Stream)",
+exams:"Merit / College Admission",
+colleges:"Government Arts Colleges",
+career:"Business Analyst, IT Executive",
+salary:"₹3–7 LPA"
+},
+
+"B.Com Marketing Management":{
+description:"Focuses on marketing, sales, branding and customer relationship management.",
+duration:"3 Years",
+eligibility:"12th Pass (Commerce/Any Stream)",
+exams:"Merit / College Admission",
+colleges:"Government Arts Colleges",
+career:"Marketing Executive, Sales Manager",
+salary:"₹3–6 LPA"
+},
+
+"B.Com International Business":{
+description:"Focuses on global trade, import-export and international business management.",
+duration:"3 Years",
+eligibility:"12th Pass (Commerce/Any Stream)",
+exams:"Merit / College Admission",
+colleges:"Government Arts Colleges",
+career:"International Business Executive, Export Manager",
+salary:"₹4–8 LPA"
+},
+
+"B.Com Taxation":{
+description:"Focuses on income tax, GST and corporate taxation.",
+duration:"3 Years",
+eligibility:"12th Pass (Commerce/Any Stream)",
+exams:"Merit / College Admission",
+colleges:"Government Arts Colleges",
+career:"Tax Consultant, Accountant",
+salary:"₹3–6 LPA"
+},
+
+"B.Com Finance":{
+description:"Focuses on financial management, investment and banking.",
+duration:"3 Years",
+eligibility:"12th Pass (Commerce/Any Stream)",
+exams:"Merit / College Admission",
+colleges:"Government Arts Colleges",
+career:"Financial Analyst, Investment Executive",
+salary:"₹4–8 LPA"
+},
+
+"Bachelor of Business Management (BBM)":{
+description:"Focuses on business administration, leadership and entrepreneurship.",
+duration:"3 Years",
+eligibility:"12th Pass (Any Stream)",
+exams:"Merit / College Admission",
+colleges:"Government Arts Colleges",
+career:"Business Manager, Entrepreneur",
+salary:"₹3–7 LPA"
+},
+"BA English":{
+description:"Focuses on English language, literature, communication and writing skills.",
+duration:"3 Years",
+eligibility:"12th Pass (Any Stream)",
+exams:"Merit / College Admission",
+colleges:"Loyola College, MCC, Government Arts Colleges",
+career:"Teacher, Content Writer, Editor",
+salary:"₹3–6 LPA"
+},
+
+"BA Tamil":{
+description:"Focuses on Tamil language, literature and culture.",
+duration:"3 Years",
+eligibility:"12th Pass (Any Stream)",
+exams:"Merit / College Admission",
+colleges:"Government Arts Colleges",
+career:"Teacher, Translator, Writer",
+salary:"₹3–6 LPA"
+},
+
+"BA History":{
+description:"Focuses on Indian and World History, archaeology and heritage.",
+duration:"3 Years",
+eligibility:"12th Pass (Any Stream)",
+exams:"Merit / College Admission",
+colleges:"Government Arts Colleges",
+career:"Historian, Teacher, Archaeologist",
+salary:"₹3–6 LPA"
+},
+
+"BA Economics":{
+description:"Focuses on economics, public finance and economic development.",
+duration:"3 Years",
+eligibility:"12th Pass (Any Stream)",
+exams:"Merit / College Admission",
+colleges:"Loyola College, MCC",
+career:"Economist, Banking Officer, Researcher",
+salary:"₹4–8 LPA"
+},
+
+"BA Political Science":{
+description:"Focuses on politics, governance and public administration.",
+duration:"3 Years",
+eligibility:"12th Pass (Any Stream)",
+exams:"Merit / College Admission",
+colleges:"Government Arts Colleges",
+career:"Civil Services, Political Analyst, Lecturer",
+salary:"₹3–7 LPA"
+},
+
+"BA Sociology":{
+description:"Focuses on society, culture and human behaviour.",
+duration:"3 Years",
+eligibility:"12th Pass (Any Stream)",
+exams:"Merit / College Admission",
+colleges:"Government Arts Colleges",
+career:"Social Worker, Researcher, NGO Professional",
+salary:"₹3–6 LPA"
+},
+"BA Psychology":{
+description:"Focuses on human behaviour, mental health and counselling.",
+duration:"3 Years",
+eligibility:"12th Pass (Any Stream)",
+exams:"Merit / College Admission",
+colleges:"Government Arts Colleges, Loyola College",
+career:"Psychologist, Counsellor, HR Executive",
+salary:"₹3–7 LPA"
+},
+
+"BA Journalism and Mass Communication":{
+description:"Focuses on journalism, media, news reporting and digital communication.",
+duration:"3 Years",
+eligibility:"12th Pass (Any Stream)",
+exams:"Merit / College Admission",
+colleges:"Government Arts Colleges",
+career:"Journalist, News Reporter, Media Executive",
+salary:"₹3–7 LPA"
+},
+
+"BA Public Administration":{
+description:"Focuses on government administration, public policy and governance.",
+duration:"3 Years",
+eligibility:"12th Pass (Any Stream)",
+exams:"Merit / College Admission",
+colleges:"Government Arts Colleges",
+career:"Civil Servant, Administrative Officer",
+salary:"₹3–7 LPA"
+},
+
+"BA Geography":{
+description:"Focuses on physical geography, human geography and GIS.",
+duration:"3 Years",
+eligibility:"12th Pass (Any Stream)",
+exams:"Merit / College Admission",
+colleges:"Government Arts Colleges",
+career:"Geographer, GIS Analyst, Teacher",
+salary:"₹3–6 LPA"
+},
+
+"BA Philosophy":{
+description:"Focuses on ethics, logic and philosophical thought.",
+duration:"3 Years",
+eligibility:"12th Pass (Any Stream)",
+exams:"Merit / College Admission",
+colleges:"Government Arts Colleges",
+career:"Teacher, Researcher, Writer",
+salary:"₹3–6 LPA"
+},
+
+"BA Fine Arts":{
+description:"Focuses on painting, sculpture, drawing and visual arts.",
+duration:"4 Years",
+eligibility:"12th Pass (Any Stream)",
+exams:"Merit / College Admission",
+colleges:"Government College of Fine Arts",
+career:"Artist, Illustrator, Art Teacher",
+salary:"₹3–8 LPA"
+},
+
+"BA Music":{
+description:"Focuses on vocal music, instrumental music and music theory.",
+duration:"3 Years",
+eligibility:"12th Pass (Any Stream)",
+exams:"Merit / College Admission",
+colleges:"Government Music Colleges",
+career:"Musician, Music Teacher, Composer",
+salary:"₹3–8 LPA"
+},
+
+"BA Tourism and Travel Management":{
+description:"Focuses on tourism, hospitality and travel management.",
+duration:"3 Years",
+eligibility:"12th Pass (Any Stream)",
+exams:"Merit / College Admission",
+colleges:"Government Arts Colleges",
+career:"Tour Manager, Travel Consultant",
+salary:"₹3–6 LPA"
+},
+"BA Social Work (BSW)":{
+description:"Focuses on helping individuals, families and communities through social service.",
+duration:"3 Years",
+eligibility:"12th Pass (Any Stream)",
+exams:"Merit / College Admission",
+colleges:"Government Arts Colleges",
+career:"Social Worker, NGO Officer, Community Development Officer",
+salary:"₹3–6 LPA"
+},
+
+"BA Defence and Strategic Studies":{
+description:"Focuses on defence studies, national security and military strategy.",
+duration:"3 Years",
+eligibility:"12th Pass (Any Stream)",
+exams:"Merit / College Admission",
+colleges:"Government Arts Colleges",
+career:"Defence Analyst, Civil Services, Researcher",
+salary:"₹4–8 LPA"
+},
+
+"BA Anthropology":{
+description:"Focuses on human evolution, culture and society.",
+duration:"3 Years",
+eligibility:"12th Pass (Any Stream)",
+exams:"Merit / College Admission",
+colleges:"Government Arts Colleges",
+career:"Anthropologist, Researcher, Museum Curator",
+salary:"₹3–6 LPA"
+},
+
+"BA Rural Development":{
+description:"Focuses on rural development, agriculture and community welfare.",
+duration:"3 Years",
+eligibility:"12th Pass (Any Stream)",
+exams:"Merit / College Admission",
+colleges:"Government Arts Colleges",
+career:"Rural Development Officer, NGO Professional",
+salary:"₹3–6 LPA"
+},
+
+"BA Criminology":{
+description:"Focuses on crime, criminal justice and forensic investigation.",
+duration:"3 Years",
+eligibility:"12th Pass (Any Stream)",
+exams:"Merit / College Admission",
+colleges:"Government Arts Colleges",
+career:"Criminologist, Crime Analyst, Investigator",
+salary:"₹4–7 LPA"
+},
+
+"BA Linguistics":{
+description:"Focuses on languages, communication and linguistic research.",
+duration:"3 Years",
+eligibility:"12th Pass (Any Stream)",
+exams:"Merit / College Admission",
+colleges:"Government Arts Colleges",
+career:"Linguist, Translator, Researcher",
+salary:"₹3–6 LPA"
+},
+
+"BA Archaeology":{
+description:"Focuses on ancient history, archaeology and heritage conservation.",
+duration:"3 Years",
+eligibility:"12th Pass (Any Stream)",
+exams:"Merit / College Admission",
+colleges:"Government Arts Colleges",
+career:"Archaeologist, Museum Officer, Heritage Consultant",
+salary:"₹4–7 LPA"
+},
+
+"BA Library and Information Science":{
+description:"Focuses on library management, information systems and digital archives.",
+duration:"1 Year (after graduation in many universities)",
+eligibility:"Varies by institution",
+exams:"Merit / College Admission",
+colleges:"Government Universities",
+career:"Librarian, Information Officer",
+salary:"₹3–6 LPA"
+},
+"B.Sc Computer Science":{
+description:"Focuses on programming, software development, databases and computer applications.",
+duration:"3 Years",
+eligibility:"12th Pass (Science/Mathematics preferred)",
+exams:"Merit / College Admission",
+colleges:"Loyola College, MCC, PSG College",
+career:"Software Developer, Programmer, System Analyst",
+salary:"₹4–8 LPA"
+},
+
+"B.Sc Information Technology":{
+description:"Focuses on networking, software, cloud computing and IT infrastructure.",
+duration:"3 Years",
+eligibility:"12th Pass (Science/Mathematics preferred)",
+exams:"Merit / College Admission",
+colleges:"Government Arts Colleges",
+career:"IT Support Engineer, Network Administrator",
+salary:"₹3–7 LPA"
+},
+
+"B.Sc Mathematics":{
+description:"Focuses on pure and applied mathematics, statistics and problem solving.",
+duration:"3 Years",
+eligibility:"12th Pass with Mathematics",
+exams:"Merit / College Admission",
+colleges:"Loyola College, MCC",
+career:"Teacher, Data Analyst, Statistician",
+salary:"₹3–7 LPA"
+},
+
+"B.Sc Physics":{
+description:"Focuses on mechanics, electronics, quantum physics and research.",
+duration:"3 Years",
+eligibility:"12th Pass with Physics and Mathematics",
+exams:"Merit / College Admission",
+colleges:"Government Arts Colleges",
+career:"Physicist, Research Assistant, Teacher",
+salary:"₹3–7 LPA"
+},
+
+"B.Sc Chemistry":{
+description:"Focuses on organic, inorganic and physical chemistry.",
+duration:"3 Years",
+eligibility:"12th Pass with Science",
+exams:"Merit / College Admission",
+colleges:"Government Arts Colleges",
+career:"Chemist, Quality Analyst, Research Assistant",
+salary:"₹3–7 LPA"
+},
+
+"B.Sc Zoology":{
+description:"Focuses on animal biology, wildlife and life sciences.",
+duration:"3 Years",
+eligibility:"12th Pass with Biology",
+exams:"Merit / College Admission",
+colleges:"Government Arts Colleges",
+career:"Zoologist, Wildlife Biologist",
+salary:"₹3–6 LPA"
+},
+
+"B.Sc Botany":{
+description:"Focuses on plants, ecology and plant biotechnology.",
+duration:"3 Years",
+eligibility:"12th Pass with Biology",
+exams:"Merit / College Admission",
+colleges:"Government Arts Colleges",
+career:"Botanist, Plant Researcher",
+salary:"₹3–6 LPA"
+},
+
+"B.Sc Microbiology":{
+description:"Focuses on microorganisms, laboratory science and medical microbiology.",
+duration:"3 Years",
+eligibility:"12th Pass with Biology",
+exams:"Merit / College Admission",
+colleges:"Government Arts Colleges",
+career:"Microbiologist, Lab Analyst",
+salary:"₹3–7 LPA"
+},
+"B.Sc Biotechnology":{
+description:"Focuses on genetics, molecular biology, microbiology and biotechnology.",
+duration:"3 Years",
+eligibility:"12th Pass with Biology/Mathematics",
+exams:"Merit / College Admission",
+colleges:"Government Arts Colleges, PSG College",
+career:"Biotechnologist, Research Associate",
+salary:"₹3–7 LPA"
+},
+
+"B.Sc Biochemistry":{
+description:"Focuses on the chemical processes of living organisms.",
+duration:"3 Years",
+eligibility:"12th Pass with Biology",
+exams:"Merit / College Admission",
+colleges:"Government Arts Colleges",
+career:"Biochemist, Laboratory Scientist",
+salary:"₹3–7 LPA"
+},
+
+"B.Sc Environmental Science":{
+description:"Focuses on environmental protection, ecology and pollution control.",
+duration:"3 Years",
+eligibility:"12th Pass with Science",
+exams:"Merit / College Admission",
+colleges:"Government Arts Colleges",
+career:"Environmental Scientist",
+salary:"₹3–7 LPA"
+},
+
+"B.Sc Statistics":{
+description:"Focuses on statistics, probability and data analysis.",
+duration:"3 Years",
+eligibility:"12th Pass with Mathematics",
+exams:"Merit / College Admission",
+colleges:"Government Arts Colleges",
+career:"Statistician, Data Analyst",
+salary:"₹4–8 LPA"
+},
+
+"B.Sc Electronics":{
+description:"Focuses on electronic circuits, communication systems and embedded devices.",
+duration:"3 Years",
+eligibility:"12th Pass with Physics and Mathematics",
+exams:"Merit / College Admission",
+colleges:"Government Arts Colleges",
+career:"Electronics Technician, Embedded Engineer",
+salary:"₹3–7 LPA"
+},
+
+"B.Sc Data Science":{
+description:"Focuses on data analysis, machine learning and artificial intelligence.",
+duration:"3 Years",
+eligibility:"12th Pass with Mathematics",
+exams:"Merit / College Admission",
+colleges:"Government Arts Colleges",
+career:"Data Analyst, Data Scientist",
+salary:"₹4–9 LPA"
+},
+
+"B.Sc Artificial Intelligence":{
+description:"Focuses on artificial intelligence, machine learning and intelligent systems.",
+duration:"3 Years",
+eligibility:"12th Pass with Mathematics",
+exams:"Merit / College Admission",
+colleges:"Government Arts Colleges",
+career:"AI Engineer, Machine Learning Engineer",
+salary:"₹5–10 LPA"
+},
+
+"B.Sc Nutrition and Dietetics":{
+description:"Focuses on nutrition, food science and healthy diet planning.",
+duration:"3 Years",
+eligibility:"12th Pass with Biology",
+exams:"Merit / College Admission",
+colleges:"Government Arts Colleges",
+career:"Dietitian, Nutritionist",
+salary:"₹3–6 LPA"
+},
+"Diploma in Mechanical Engineering":{
+description:"Focuses on machines, manufacturing, production and maintenance.",
+duration:"3 Years",
+eligibility:"After 10th",
+exams:"Merit / Polytechnic Admission",
+colleges:"Government Polytechnic Colleges",
+career:"Mechanical Technician, Production Supervisor",
+salary:"₹2.5–5 LPA"
+},
+
+"Diploma in Civil Engineering":{
+description:"Focuses on construction, buildings, roads and surveying.",
+duration:"3 Years",
+eligibility:"After 10th",
+exams:"Merit / Polytechnic Admission",
+colleges:"Government Polytechnic Colleges",
+career:"Civil Technician, Site Supervisor",
+salary:"₹2.5–5 LPA"
+},
+
+"Diploma in Electrical and Electronics Engineering":{
+description:"Focuses on electrical systems, power generation and maintenance.",
+duration:"3 Years",
+eligibility:"After 10th",
+exams:"Merit / Polytechnic Admission",
+colleges:"Government Polytechnic Colleges",
+career:"Electrical Technician",
+salary:"₹2.5–5 LPA"
+},
+
+"Diploma in Electronics and Communication Engineering":{
+description:"Focuses on electronics, communication and embedded systems.",
+duration:"3 Years",
+eligibility:"After 10th",
+exams:"Merit / Polytechnic Admission",
+colleges:"Government Polytechnic Colleges",
+career:"Electronics Technician",
+salary:"₹2.5–5 LPA"
+},
+
+"Diploma in Computer Engineering":{
+description:"Focuses on computer hardware, software and networking.",
+duration:"3 Years",
+eligibility:"After 10th",
+exams:"Merit / Polytechnic Admission",
+colleges:"Government Polytechnic Colleges",
+career:"Computer Technician, IT Support",
+salary:"₹3–6 LPA"
+},
+
+"Diploma in Information Technology":{
+description:"Focuses on software, networking and information technology.",
+duration:"3 Years",
+eligibility:"After 10th",
+exams:"Merit / Polytechnic Admission",
+colleges:"Government Polytechnic Colleges",
+career:"IT Technician, Network Support Engineer",
+salary:"₹3–6 LPA"
+},
+
+"Diploma in Automobile Engineering":{
+description:"Focuses on vehicle design, servicing and maintenance.",
+duration:"3 Years",
+eligibility:"After 10th",
+exams:"Merit / Polytechnic Admission",
+colleges:"Government Polytechnic Colleges",
+career:"Automobile Technician",
+salary:"₹2.5–5 LPA"
+},
+
+"Diploma in Mechatronics":{
+description:"Focuses on automation, robotics and smart manufacturing.",
+duration:"3 Years",
+eligibility:"After 10th",
+exams:"Merit / Polytechnic Admission",
+colleges:"Government Polytechnic Colleges",
+career:"Automation Technician",
+salary:"₹3–6 LPA"
+},
+"Diploma in Chemical Engineering":{
+description:"Focuses on chemical processes, industrial production and safety.",
+duration:"3 Years",
+eligibility:"After 10th",
+exams:"Merit / Polytechnic Admission",
+colleges:"Government Polytechnic Colleges",
+career:"Chemical Plant Technician",
+salary:"₹2.5–5 LPA"
+},
+
+"Diploma in Textile Technology":{
+description:"Focuses on textile manufacturing, fabric production and quality control.",
+duration:"3 Years",
+eligibility:"After 10th",
+exams:"Merit / Polytechnic Admission",
+colleges:"Government Polytechnic Colleges",
+career:"Textile Technician",
+salary:"₹2.5–5 LPA"
+},
+
+"Diploma in Marine Engineering":{
+description:"Focuses on ship machinery, marine systems and maintenance.",
+duration:"3 Years",
+eligibility:"After 10th",
+exams:"Merit / Polytechnic Admission",
+colleges:"Marine Polytechnic Colleges",
+career:"Marine Technician",
+salary:"₹3–7 LPA"
+},
+
+"Diploma in Mining Engineering":{
+description:"Focuses on mining operations, mineral extraction and mine safety.",
+duration:"3 Years",
+eligibility:"After 10th",
+exams:"Merit / Polytechnic Admission",
+colleges:"Government Polytechnic Colleges",
+career:"Mining Technician",
+salary:"₹3–6 LPA"
+},
+
+"Diploma in Agricultural Engineering":{
+description:"Focuses on farm machinery, irrigation systems and agricultural technology.",
+duration:"3 Years",
+eligibility:"After 10th",
+exams:"Merit / Polytechnic Admission",
+colleges:"Government Polytechnic Colleges",
+career:"Agricultural Technician",
+salary:"₹2.5–5 LPA"
+},
+
+"Diploma in Architecture":{
+description:"Focuses on building design, drafting and construction planning.",
+duration:"3 Years",
+eligibility:"After 10th",
+exams:"Merit / Polytechnic Admission",
+colleges:"Government Polytechnic Colleges",
+career:"Architectural Assistant",
+salary:"₹3–6 LPA"
+},
+
+"Diploma in Printing Technology":{
+description:"Focuses on printing processes, packaging and publishing technology.",
+duration:"3 Years",
+eligibility:"After 10th",
+exams:"Merit / Polytechnic Admission",
+colleges:"Government Polytechnic Colleges",
+career:"Printing Technician",
+salary:"₹2.5–5 LPA"
+},
+
+"Diploma in Fashion Technology":{
+description:"Focuses on fashion design, garment production and textile technology.",
+duration:"3 Years",
+eligibility:"After 10th",
+exams:"Merit / Polytechnic Admission",
+colleges:"Government Polytechnic Colleges",
+career:"Fashion Designer, Garment Technologist",
+salary:"₹2.5–5 LPA"
+},
+"UPSC Civil Services":{
+description:"Conducted by UPSC to recruit IAS, IPS, IFS and other Group A officers.",
+duration:"Preparation: 1–3 Years",
+eligibility:"Bachelor's Degree",
+exams:"UPSC Prelims, Mains and Interview",
+colleges:"Not Applicable",
+career:"IAS, IPS, IFS, IRS Officer",
+salary:"₹8–18 LPA"
+},
+
+"TNPSC Group 1":{
+description:"Recruits officers for top administrative posts in Tamil Nadu.",
+duration:"Preparation: 1–2 Years",
+eligibility:"Bachelor's Degree",
+exams:"Prelims, Mains and Interview",
+colleges:"Not Applicable",
+career:"Deputy Collector, DSP, Assistant Commissioner",
+salary:"₹7–15 LPA"
+},
+
+"TNPSC Group 2":{
+description:"Recruits officers for executive and non-executive posts.",
+duration:"Preparation: 6–12 Months",
+eligibility:"Bachelor's Degree",
+exams:"Prelims, Mains and Interview",
+colleges:"Not Applicable",
+career:"Sub Registrar, Municipal Commissioner",
+salary:"₹5–10 LPA"
+},
+
+"TNPSC Group 4":{
+description:"Recruits candidates for Junior Assistant, Typist, VAO and similar posts.",
+duration:"Preparation: 6–12 Months",
+eligibility:"10th Pass",
+exams:"Single Written Examination",
+colleges:"Not Applicable",
+career:"Junior Assistant, Typist, VAO",
+salary:"₹3–6 LPA"
+},
+
+"SSC CGL":{
+description:"Conducted by SSC to recruit graduates for Central Government jobs.",
+duration:"Preparation: 6–12 Months",
+eligibility:"Bachelor's Degree",
+exams:"Tier I, Tier II",
+colleges:"Not Applicable",
+career:"Income Tax Inspector, CBI Officer, Auditor",
+salary:"₹5–10 LPA"
+},
+
+"SSC CHSL":{
+description:"Conducted by SSC for 12th pass candidates.",
+duration:"Preparation: 6–12 Months",
+eligibility:"12th Pass",
+exams:"Tier I, Tier II",
+colleges:"Not Applicable",
+career:"LDC, DEO, Postal Assistant",
+salary:"₹3–6 LPA"
+},
+
+"IBPS PO":{
+description:"Recruitment for Probationary Officers in public sector banks.",
+duration:"Preparation: 6–12 Months",
+eligibility:"Bachelor's Degree",
+exams:"Prelims, Mains, Interview",
+colleges:"Not Applicable",
+career:"Probationary Officer",
+salary:"₹6–10 LPA"
+},
+
+"SBI PO":{
+description:"Recruitment for Probationary Officers in State Bank of India.",
+duration:"Preparation: 6–12 Months",
+eligibility:"Bachelor's Degree",
+exams:"Prelims, Mains, Interview",
+colleges:"Not Applicable",
+career:"Probationary Officer",
+salary:"₹7–12 LPA"
+},
+"NDA (National Defence Academy)":{
+description:"Conducted by UPSC for admission to the Army, Navy and Air Force after 12th.",
+duration:"Training: 3 Years",
+eligibility:"12th Pass (PCM required for Air Force and Navy)",
+exams:"UPSC NDA Exam",
+colleges:"National Defence Academy, Pune",
+career:"Army Officer, Navy Officer, Air Force Officer",
+salary:"₹7–15 LPA"
+},
+
+"CDS (Combined Defence Services)":{
+description:"Conducted by UPSC to recruit graduates into the Indian Armed Forces.",
+duration:"Training: 1–2 Years",
+eligibility:"Bachelor's Degree",
+exams:"UPSC CDS Exam",
+colleges:"IMA, INA, AFA, OTA",
+career:"Army Officer, Navy Officer, Air Force Officer",
+salary:"₹7–15 LPA"
+},
+
+"AFCAT":{
+description:"Conducted by the Indian Air Force to recruit officers in Flying and Ground Duty branches.",
+duration:"Training: 1 Year",
+eligibility:"Bachelor's Degree",
+exams:"AFCAT",
+colleges:"Air Force Academy",
+career:"Indian Air Force Officer",
+salary:"₹7–15 LPA"
+},
+
+"Railway Recruitment Board (RRB)":{
+description:"Conducts recruitment for various posts in Indian Railways.",
+duration:"Preparation: 6–12 Months",
+eligibility:"10th / 12th / Diploma / Degree (depends on post)",
+exams:"RRB NTPC, RRB Group D, RRB JE",
+colleges:"Not Applicable",
+career:"Railway Employee",
+salary:"₹3–8 LPA"
+},
+
+"Indian Army Agniveer":{
+description:"Recruitment for the Agniveer scheme in the Indian Army.",
+duration:"4 Years Service",
+eligibility:"10th / 12th Pass (depends on post)",
+exams:"Online Test, Physical Test, Medical Test",
+colleges:"Not Applicable",
+career:"Agniveer Soldier",
+salary:"₹4–7 LPA"
+},
+
+"Tamil Nadu Police Recruitment":{
+description:"Recruitment for Constable, SI and other police posts in Tamil Nadu.",
+duration:"Preparation: 6–12 Months",
+eligibility:"10th / 12th / Degree (depends on post)",
+exams:"Written Exam, Physical Test",
+colleges:"Not Applicable",
+career:"Police Constable, Sub Inspector",
+salary:"₹3–8 LPA"
+},
+
+"LIC AAO and ADO":{
+description:"Recruitment for Administrative and Development Officer posts in LIC.",
+duration:"Preparation: 6–12 Months",
+eligibility:"Bachelor's Degree",
+exams:"LIC Recruitment Exam",
+colleges:"Not Applicable",
+career:"Administrative Officer, Development Officer",
+salary:"₹5–10 LPA"
+},
+
+"IBPS Clerk":{
+description:"Recruitment for Clerical posts in Public Sector Banks.",
+duration:"Preparation: 6–12 Months",
+eligibility:"Bachelor's Degree",
+exams:"IBPS Clerk Prelims and Mains",
+colleges:"Not Applicable",
+career:"Bank Clerk",
+salary:"₹4–7 LPA"
+},
+"Central Sector Scholarship":{
+description:"Scholarship provided by the Government of India for meritorious students pursuing higher education.",
+duration:"Renewable every academic year",
+eligibility:"12th Pass with required marks and eligible family income",
+exams:"No Entrance Exam",
+colleges:"Recognized Colleges and Universities",
+career:"Financial assistance for higher education",
+salary:"Scholarship up to ₹20,000 per year"
+},
+
+"Pragati Scholarship (AICTE)":{
+description:"Scholarship for girl students studying technical courses.",
+duration:"Course Duration",
+eligibility:"Girl students in AICTE approved institutions",
+exams:"No Entrance Exam",
+colleges:"AICTE Approved Colleges",
+career:"Financial support for technical education",
+salary:"₹50,000 per year"
+},
+
+"Saksham Scholarship (AICTE)":{
+description:"Scholarship for specially-abled students pursuing technical education.",
+duration:"Course Duration",
+eligibility:"Differently-abled students in AICTE approved colleges",
+exams:"No Entrance Exam",
+colleges:"AICTE Approved Colleges",
+career:"Financial support for education",
+salary:"₹50,000 per year"
+},
+
+"National Scholarship Portal (NSP)":{
+description:"A central portal offering various scholarships from Central and State Governments.",
+duration:"Varies",
+eligibility:"Depends on the scholarship scheme",
+exams:"No Entrance Exam",
+colleges:"Recognized Institutions",
+career:"Financial assistance",
+salary:"Varies by scheme"
+},
+
+"First Graduate Scholarship (Tamil Nadu)":{
+description:"Fee concession for first graduate students in Tamil Nadu.",
+duration:"Course Duration",
+eligibility:"First graduate in the family",
+exams:"No Entrance Exam",
+colleges:"Eligible Tamil Nadu Colleges",
+career:"Reduces tuition fees",
+salary:"Fee concession"
+},
+
+"BC/MBC Scholarship (Tamil Nadu)":{
+description:"Scholarship for eligible BC and MBC students studying in recognized institutions.",
+duration:"Course Duration",
+eligibility:"Eligible BC/MBC students with required family income",
+exams:"No Entrance Exam",
+colleges:"Recognized Colleges",
+career:"Educational financial assistance",
+salary:"Varies by scheme"
+},
+
+"SC/ST Scholarship":{
+description:"Scholarship for eligible Scheduled Caste and Scheduled Tribe students.",
+duration:"Course Duration",
+eligibility:"Eligible SC/ST students",
+exams:"No Entrance Exam",
+colleges:"Recognized Institutions",
+career:"Educational financial assistance",
+salary:"Varies by scheme"
+},
+
+"UGO Scholarship":{
+description:"Scholarship for eligible undergraduate students based on the scheme guidelines.",
+duration:"One academic year",
+eligibility:"As per scholarship rules",
+exams:"No Entrance Exam",
+colleges:"Eligible Colleges",
+career:"Financial assistance",
+salary:"Varies by scheme"
+}
+
+
+
+};
+let data = courses[course];
+
+if(data){
+
+document.getElementById("description").innerHTML = data.description;
+document.getElementById("duration").innerHTML = data.duration;
+document.getElementById("eligibility").innerHTML = data.eligibility;
+document.getElementById("exams").innerHTML = data.exams;
+document.getElementById("colleges").innerHTML = data.colleges;
+document.getElementById("career").innerHTML = data.career;
+document.getElementById("salary").innerHTML = data.salary;
+
+}
+else{
+
+document.getElementById("description").innerHTML = "Course details coming soon.";
+document.getElementById("duration").innerHTML = "-";
+document.getElementById("eligibility").innerHTML = "-";
+document.getElementById("exams").innerHTML = "-";
+document.getElementById("colleges").innerHTML = "-";
+document.getElementById("career").innerHTML = "-";
+document.getElementById("salary").innerHTML = "-";
+
+}
+
+</script>
+
+</body>
+</html>

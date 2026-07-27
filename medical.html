@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Medical Courses</title>
+
+<link rel="stylesheet" href="style.css">
+
+</head>
+
+<body>
+
+<header>
+<h1>🩺 Medical Courses</h1>
+<p>Explore Medical and Allied Health courses after 12th.</p>
+</header>
+
+<div class="container">
+
+<button onclick="openCourse('MBBS')">MBBS</button>
+
+<button onclick="openCourse('BDS')">BDS</button>
+
+<button onclick="openCourse('BAMS')">BAMS</button>
+
+<button onclick="openCourse('BHMS')">BHMS</button>
+
+<button onclick="openCourse('BUMS')">BUMS</button>
+
+<button onclick="openCourse('BSMS')">BSMS</button>
+
+<button onclick="openCourse('B.V.Sc & A.H.')">B.V.Sc & A.H.</button>
+
+<button onclick="openCourse('B.Pharm')">B.Pharm</button>
+
+<button onclick="openCourse('Pharm.D')">Pharm.D</button>
+
+<button onclick="openCourse('B.Sc Nursing')">B.Sc Nursing</button>
+
+<button onclick="openCourse('BPT')">BPT</button>
+
+<button onclick="openCourse('BOT')">BOT</button>
+
+<button onclick="openCourse('B.Sc Radiology and Imaging Technology')">B.Sc Radiology and Imaging Technology</button>
+
+<button onclick="openCourse('B.Sc Medical Laboratory Technology')">B.Sc Medical Laboratory Technology</button>
+
+<button onclick="openCourse('B.Sc Optometry')">B.Sc Optometry</button>
+
+<button onclick="openCourse('B.Sc Dialysis Technology')">B.Sc Dialysis Technology</button>
+
+<button onclick="openCourse('B.Sc Operation Theatre and Anaesthesia Technology')">B.Sc Operation Theatre and Anaesthesia Technology</button>
+
+<button onclick="openCourse('B.Sc Cardiac Technology')">B.Sc Cardiac Technology</button>
+
+<button onclick="openCourse('B.Sc Anaesthesia Technology')">B.Sc Anaesthesia Technology</button>
+
+<button onclick="openCourse('B.Sc Respiratory Therapy')">B.Sc Respiratory Therapy</button>
+
+<button onclick="openCourse('B.Sc Perfusion Technology')">B.Sc Perfusion Technology</button>
+
+<button onclick="openCourse('B.Sc Emergency Care Technology')">B.Sc Emergency Care Technology</button>
+
+<button onclick="openCourse('B.Sc Physician Assistant')">B.Sc Physician Assistant</button>
+
+<button onclick="openCourse('B.Sc Critical Care Technology')">B.Sc Critical Care Technology</button>
+
+<button onclick="openCourse('B.Sc Neuro Electrophysiology Technology')">B.Sc Neuro Electrophysiology Technology</button>
+
+<button onclick="openCourse('B.Sc Audiology and Speech Language Pathology')">B.Sc Audiology and Speech Language Pathology</button>
+
+<button onclick="openCourse('B.Sc Medical Record Science')">B.Sc Medical Record Science</button>
+
+<button onclick="openCourse('B.Sc Imaging Technology')">B.Sc Imaging Technology</button>
+
+<button onclick="openCourse('B.Sc Nuclear Medicine Technology')">B.Sc Nuclear Medicine Technology</button>
+
+<button onclick="openCourse('B.Sc Health Information Management')">B.Sc Health Information Management</button>
+
+<button onclick="openCourse('B.Sc Medical Sociology')">B.Sc Medical Sociology</button>
+
+<button onclick="openCourse('B.Sc Hospital Administration')">B.Sc Hospital Administration</button>
+
+<button onclick="openCourse('B.Sc Public Health')">B.Sc Public Health</button>
+
+<button onclick="openCourse('B.Sc Nutrition and Dietetics')">B.Sc Nutrition and Dietetics</button>
+
+<button onclick="openCourse('B.Sc Forensic Science')">B.Sc Forensic Science</button>
+
+<br><br>
+
+<a href="index.html">
+<button>⬅ Back to Home</button>
+</a>
+
+</div>
+
+<footer>
+<p>© 2026 Career Guidance Website</p>
+</footer>
+
+<script>
+function openCourse(courseName){
+    localStorage.setItem("course", courseName);
+    window.location.href="course-details.html";
+}
+</script>
+
+</body>
+</html>

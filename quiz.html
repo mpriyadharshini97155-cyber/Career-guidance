@@ -1,0 +1,326 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Course Quiz</title>
+
+<link rel="stylesheet" href="style.css">
+
+</head>
+
+<body>
+
+<header>
+<h1>📝 Course Quiz</h1>
+<p>Test your knowledge about the selected course.</p>
+</header>
+
+<div class="container">
+
+<h2 id="courseTitle"></h2>
+
+<div id="quizBox">
+
+<p id="question"></p>
+
+<label>
+<input type="radio" name="answer" value="0">
+<span id="option0"></span>
+</label>
+
+<br><br>
+
+<label>
+<input type="radio" name="answer" value="1">
+<span id="option1"></span>
+</label>
+
+<br><br>
+
+<label>
+<input type="radio" name="answer" value="2">
+<span id="option2"></span>
+</label>
+
+<br><br>
+
+<label>
+<input type="radio" name="answer" value="3">
+<span id="option3"></span>
+</label>
+
+<br><br>
+
+<button onclick="nextQuestion()">Next Question</button>
+
+</div>
+
+<h2 id="score"></h2>
+
+<br>
+
+<a href="course-details.html">
+<button>⬅ Back to Course</button>
+</a>
+
+</div>
+<script>
+let course = localStorage.getItem("course");
+
+document.getElementById("courseName").innerHTML = course + " Quiz";
+
+
+let questions = {
+
+"Computer Science Engineering":[
+{
+question:"Which language is used for web page structure?",
+options:["HTML","Python","Java","C++"],
+answer:"HTML"
+},
+{
+question:"Which data structure follows FIFO?",
+options:["Stack","Queue","Tree","Graph"],
+answer:"Queue"
+}
+],
+
+
+"Information Technology":[
+{
+question:"IT mainly deals with?",
+options:["Information systems and technology","Building bridges","Medical treatment","Agriculture"],
+answer:"Information systems and technology"
+},
+{
+question:"Which is a database management system?",
+options:["MySQL","Photoshop","AutoCAD","PowerPoint"],
+answer:"MySQL"
+}
+],
+
+
+"Artificial Intelligence and Data Science":[
+{
+question:"AI stands for?",
+options:["Artificial Intelligence","Automatic Internet","Advanced Information","Applied Intelligence"],
+answer:"Artificial Intelligence"
+},
+{
+question:"Data Science mainly works with?",
+options:["Data analysis","Building machines","Civil design","Chemical reactions"],
+answer:"Data analysis"
+}
+],
+
+
+"Artificial Intelligence and Machine Learning":[
+{
+question:"Machine Learning allows computers to?",
+options:["Learn from data","Only store files","Repair hardware","Create buildings"],
+answer:"Learn from data"
+},
+{
+question:"Which language is popular in AI?",
+options:["Python","HTML","CSS","SQL"],
+answer:"Python"
+}
+],
+
+
+"Cyber Security Engineering":[
+{
+question:"Cyber security protects?",
+options:["Computer systems and networks","Roads","Buildings","Vehicles"],
+answer:"Computer systems and networks"
+},
+{
+question:"A harmful computer program is called?",
+options:["Malware","Hardware","Compiler","Browser"],
+answer:"Malware"
+}
+],
+
+
+"Electronics and Communication Engineering":[
+{
+question:"ECE deals with?",
+options:["Electronics and communication","Only software","Buildings","Medicine"],
+answer:"Electronics and communication"
+},
+{
+question:"A semiconductor device is?",
+options:["Diode","Motor","Battery","Pump"],
+answer:"Diode"
+}
+],
+
+
+"Electrical and Electronics Engineering":[
+{
+question:"Unit of electric current is?",
+options:["Ampere","Volt","Ohm","Watt"],
+answer:"Ampere"
+},
+{
+question:"Transformer works with?",
+options:["AC supply","Water","Fuel","Mechanical force"],
+answer:"AC supply"
+}
+]
+
+};let course = localStorage.getItem("course");
+
+document.getElementById("courseName").innerHTML = course + " Quiz";
+
+
+let questions = {
+
+"Computer Science Engineering":[
+{
+question:"Which language is used for web page structure?",
+options:["HTML","Python","Java","C++"],
+answer:"HTML"
+},
+{
+question:"Which data structure follows FIFO?",
+options:["Stack","Queue","Tree","Graph"],
+answer:"Queue"
+}
+],
+
+
+"Information Technology":[
+{
+question:"IT mainly deals with?",
+options:["Information systems and technology","Building bridges","Medical treatment","Agriculture"],
+answer:"Information systems and technology"
+},
+{
+question:"Which is a database management system?",
+options:["MySQL","Photoshop","AutoCAD","PowerPoint"],
+answer:"MySQL"
+}
+],
+
+
+"Artificial Intelligence and Data Science":[
+{
+question:"AI stands for?",
+options:["Artificial Intelligence","Automatic Internet","Advanced Information","Applied Intelligence"],
+answer:"Artificial Intelligence"
+},
+{
+question:"Data Science mainly works with?",
+options:["Data analysis","Building machines","Civil design","Chemical reactions"],
+answer:"Data analysis"
+}
+],
+
+
+"Artificial Intelligence and Machine Learning":[
+{
+question:"Machine Learning allows computers to?",
+options:["Learn from data","Only store files","Repair hardware","Create buildings"],
+answer:"Learn from data"
+},
+{
+question:"Which language is popular in AI?",
+options:["Python","HTML","CSS","SQL"],
+answer:"Python"
+}
+],
+
+
+"Cyber Security Engineering":[
+{
+question:"Cyber security protects?",
+options:["Computer systems and networks","Roads","Buildings","Vehicles"],
+answer:"Computer systems and networks"
+},
+{
+question:"A harmful computer program is called?",
+options:["Malware","Hardware","Compiler","Browser"],
+answer:"Malware"
+}
+],
+
+
+"Electronics and Communication Engineering":[
+{
+question:"ECE deals with?",
+options:["Electronics and communication","Only software","Buildings","Medicine"],
+answer:"Electronics and communication"
+},
+{
+question:"A semiconductor device is?",
+options:["Diode","Motor","Battery","Pump"],
+answer:"Diode"
+}
+],
+
+
+"Electrical and Electronics Engineering":[
+{
+question:"Unit of electric current is?",
+options:["Ampere","Volt","Ohm","Watt"],
+answer:"Ampere"
+},
+{
+question:"Transformer works with?",
+options:["AC supply","Water","Fuel","Mechanical force"],
+answer:"AC supply"
+}
+]
+
+};
+let currentQuestions = questions[course];
+
+let quizContainer = document.getElementById("quizContainer");
+
+if(currentQuestions){
+
+let html="";
+
+currentQuestions.forEach((q,index)=>{
+
+html += `<h3>${index+1}. ${q.question}</h3>`;
+
+q.options.forEach(option=>{
+html += `
+<input type="radio" name="q${index}" value="${option}">
+${option}<br>`;
+});
+
+});
+
+quizContainer.innerHTML = html;
+
+}
+else{
+quizContainer.innerHTML="Quiz not available yet.";
+}
+
+
+function checkAnswer(){
+
+let score=0;
+
+currentQuestions.forEach((q,index)=>{
+
+let selected=document.querySelector(
+'input[name="q'+index+'"]:checked'
+);
+
+if(selected && selected.value==q.answer){
+score++;
+}
+
+});
+
+document.getElementById("result").innerHTML =
+"Your Score: "+score+"/"+currentQuestions.length;
+
+}
+

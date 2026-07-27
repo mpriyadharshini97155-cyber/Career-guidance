@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Government Exams</title>
+
+<link rel="stylesheet" href="style.css">
+
+</head>
+
+<body>
+
+<header>
+<h1>🏛 Government Exams</h1>
+<p>Explore Government Job Exams after 10th, 12th and Graduation.</p>
+</header>
+
+<div class="container">
+
+<button onclick="openCourse('UPSC Civil Services')">UPSC Civil Services</button>
+
+<button onclick="openCourse('TNPSC Group 1')">TNPSC Group 1</button>
+
+<button onclick="openCourse('TNPSC Group 2')">TNPSC Group 2</button>
+
+<button onclick="openCourse('TNPSC Group 4')">TNPSC Group 4</button>
+
+<button onclick="openCourse('SSC CGL')">SSC CGL</button>
+
+<button onclick="openCourse('SSC CHSL')">SSC CHSL</button>
+
+<button onclick="openCourse('IBPS PO')">IBPS PO</button>
+
+<button onclick="openCourse('SBI PO')">SBI PO</button>
+
+<button onclick="openCourse('NDA (National Defence Academy)')">NDA (National Defence Academy)</button>
+
+<button onclick="openCourse('CDS (Combined Defence Services)')">CDS (Combined Defence Services)</button>
+
+<button onclick="openCourse('AFCAT')">AFCAT</button>
+
+<button onclick="openCourse('Railway Recruitment Board (RRB)')">Railway Recruitment Board (RRB)</button>
+
+<button onclick="openCourse('Indian Army Agniveer')">Indian Army Agniveer</button>
+
+<button onclick="openCourse('Tamil Nadu Police Recruitment')">Tamil Nadu Police Recruitment</button>
+
+<button onclick="openCourse('LIC AAO and ADO')">LIC AAO and ADO</button>
+
+<button onclick="openCourse('IBPS Clerk')">IBPS Clerk</button>
+
+<br><br>
+
+<a href="index.html">
+<button>⬅ Back to Home</button>
+</a>
+
+</div>
+
+<footer>
+<p>© 2026 Career Guidance Website</p>
+</footer>
+
+<script>
+function openCourse(courseName){
+    localStorage.setItem("course", courseName);
+    window.location.href="course-details.html";
+}
+</script>
+
+</body>
+</html>

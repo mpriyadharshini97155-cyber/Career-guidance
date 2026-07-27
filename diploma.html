@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Diploma Courses</title>
+
+<link rel="stylesheet" href="style.css">
+
+</head>
+
+<body>
+
+<header>
+<h1>🎓 Diploma Courses</h1>
+<p>Explore Diploma courses after 10th.</p>
+</header>
+
+<div class="container">
+
+<button onclick="openCourse('Diploma in Mechanical Engineering')">Diploma in Mechanical Engineering</button>
+
+<button onclick="openCourse('Diploma in Civil Engineering')">Diploma in Civil Engineering</button>
+
+<button onclick="openCourse('Diploma in Electrical and Electronics Engineering')">Diploma in Electrical and Electronics Engineering</button>
+
+<button onclick="openCourse('Diploma in Electronics and Communication Engineering')">Diploma in Electronics and Communication Engineering</button>
+
+<button onclick="openCourse('Diploma in Computer Engineering')">Diploma in Computer Engineering</button>
+
+<button onclick="openCourse('Diploma in Information Technology')">Diploma in Information Technology</button>
+
+<button onclick="openCourse('Diploma in Automobile Engineering')">Diploma in Automobile Engineering</button>
+
+<button onclick="openCourse('Diploma in Mechatronics')">Diploma in Mechatronics</button>
+
+<button onclick="openCourse('Diploma in Chemical Engineering')">Diploma in Chemical Engineering</button>
+
+<button onclick="openCourse('Diploma in Textile Technology')">Diploma in Textile Technology</button>
+
+<button onclick="openCourse('Diploma in Marine Engineering')">Diploma in Marine Engineering</button>
+
+<button onclick="openCourse('Diploma in Mining Engineering')">Diploma in Mining Engineering</button>
+
+<button onclick="openCourse('Diploma in Agricultural Engineering')">Diploma in Agricultural Engineering</button>
+
+<button onclick="openCourse('Diploma in Architecture')">Diploma in Architecture</button>
+
+<button onclick="openCourse('Diploma in Printing Technology')">Diploma in Printing Technology</button>
+
+<button onclick="openCourse('Diploma in Fashion Technology')">Diploma in Fashion Technology</button>
+
+<br><br>
+
+<a href="index.html">
+<button>⬅ Back to Home</button>
+</a>
+
+</div>
+
+<footer>
+<p>© 2026 Career Guidance Website</p>
+</footer>
+
+<script>
+function openCourse(courseName){
+    localStorage.setItem("course", courseName);
+    window.location.href="course-details.html";
+}
+</script>
+
+</body>
+</html>
